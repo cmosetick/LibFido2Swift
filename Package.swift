@@ -21,10 +21,7 @@ let package = Package(
         .target(
             name: "LibFido2Swift",
             dependencies: [
-                "LibCrypto",
-                "libfido2",
-                "LibCbor",
-                .product(name: "Crypto", package: "swift-crypto")
+                .product(name: "Crypto", package: "swift-crypto", condition: .when(platforms: [.linux]))
             ],
             path: "LibFido2Swift"
         ),
