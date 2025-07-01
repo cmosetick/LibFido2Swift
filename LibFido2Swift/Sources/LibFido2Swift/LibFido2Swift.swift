@@ -2,7 +2,11 @@
 // https://docs.swift.org/swift-book
 import libfido2
 import Foundation
+#if canImport(CryptoKit)
 import CryptoKit
+#else
+import Crypto
+#endif
 
 public struct ChallengeResponse: Encodable {
     public let challenge: String
