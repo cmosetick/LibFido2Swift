@@ -14,6 +14,9 @@ let package = Package(
             name: "LibFido2Swift",
             targets: ["LibFido2Swift"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-crypto.git", exact: "3.12.3")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
@@ -27,8 +30,5 @@ let package = Package(
         .binaryTarget(name: "LibCbor", path: "./Frameworks/LibCbor.xcframework"),
         .binaryTarget(name: "LibCrypto", path: "./Frameworks/LibCrypto.xcframework"),
         .binaryTarget(name: "libfido2", path: "./Frameworks/libfido2.xcframework"),
-    ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-crypto.git", exact: "3.12.3")
     ]
 )
